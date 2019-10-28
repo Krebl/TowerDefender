@@ -1,10 +1,18 @@
 ﻿using System;
+using UniRx;
 
 namespace Model
 {
     public class DamageManager : IDamageManager
     {
-        public Action<string>  OnKilled { get; set; }
+        public IObservable<string> OnKilled => _onKilled;
+
+        private Subject<string> _onKilled;
+
+        public DamageManager()
+        {
+            _onKilled = new Subject<string>();
+        }
         
         public void SetDamage(IReceiveDamage damagedObject, int damage)
         {
@@ -12,7 +20,7 @@ namespace Model
 
             if (damagedObject.HealthAmount <= 0)
             {
-                OnKilled?.Invoke(damagedObject.Id);
+                _onKilled.OnNext(damagedObject.Id);
             }
         }
     }

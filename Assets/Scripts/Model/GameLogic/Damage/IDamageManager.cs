@@ -3,7 +3,7 @@ using Model;
 
 public interface IDamageManager
 {
-    Action<string>  OnKilled { get; set; }
+   IObservable<string> OnKilled { get; }
 
     void SetDamage(IReceiveDamage damagedObject, int damage);
 }
