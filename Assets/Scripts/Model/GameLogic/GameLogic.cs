@@ -1,4 +1,5 @@
 ﻿using Configs;
+using Purchase;
 
 
 namespace Model
@@ -10,11 +11,14 @@ namespace Model
         public IDamageManager DamageManager { get; }
         
         public IEnemySpawn EnemySpawn { get; }
+        
+        public IGameStore Store { get; }
 
         private IGameConfig _gameConfig;
         
         public GameLogic(IGameConfig config)
         {
+            
             _gameConfig = config;
             
             Player = new Player();
@@ -22,6 +26,8 @@ namespace Model
             
             DamageManager = new DamageManager();
             EnemySpawn = new EnemySpawn(config.EnemyConfigs);
+            
+            Store = new GameStore();
         }
     }
 }
