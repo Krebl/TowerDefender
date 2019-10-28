@@ -1,0 +1,15 @@
+Library/
+Temp/
+*.log
+.idea/
+mst_15years_game.unity.sln.DotSettings.user
+mst_15years_game.unity.sln
+Assembly-CSharp.csproj
+Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
+Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta
+Assets/Plugins/Editor/JetBrains.meta
+*.csproj
+Assembly-CSharp.csproj.DotSettings
+*.DotSettings
+.gradle/
+obj/Debug
