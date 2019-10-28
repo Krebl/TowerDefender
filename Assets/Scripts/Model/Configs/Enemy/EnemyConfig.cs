@@ -7,8 +7,9 @@ namespace Configs
     {
         [Header("Prefabs")]
         [SerializeField] private GameObject _prefabEnemy;
-        
-        [Header("Settings")]
+
+        [Header("Settings")] 
+        [SerializeField] private string _id;
         [SerializeField] private int _healthAmount;
         [SerializeField] private float _speed;
         [SerializeField] private int _damage;
@@ -16,6 +17,8 @@ namespace Configs
         [Header("Reward")] 
         [SerializeField] private EnemyRewardConfig _reward;
 
+        public string Id => _id;
+        
         public GameObject PrefabEnemy => _prefabEnemy;
         
         public int HealthAmount => _healthAmount;
