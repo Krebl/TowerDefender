@@ -12,9 +12,15 @@ namespace Game
         private IEnemy _enemy;
         private Vector3 _currentDirection;
         
-        public void Init(IEnemy enemy)
+        public int NumberObject { get; private set; }
+
+        public Vector3 Position => _cachedTransform.position;
+        
+        public void Init(IEnemy enemy, int numberObject)
         {
+            NumberObject = numberObject;
             _enemy = enemy;
+            
             _isMoving = true;
             GameRoot.Instance.GameLogic.DamageManager.OnKilled.Subscribe(OnDeath).AddTo(this);
         }
