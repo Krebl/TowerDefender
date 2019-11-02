@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using System;
+using Model;
 using UniRx;
 using UnityEngine;
 
@@ -8,35 +9,35 @@ namespace Game
     {
         [SerializeField] private Transform _cachedTransform;
 
-        private bool _isMoving = false;
+        private bool _isActivate = false;
         private IEnemy _enemy;
-        private Vector3 _currentDirection;
-        
+
         public int NumberObject { get; private set; }
 
         public Vector3 Position => _cachedTransform.position;
-        
+        public IMoverEnemy MoverEnemy { get; set; }
+        public void ActivateEnemy(float delay)
+        {
+            Observable.Start(() => _isActivate = true).Delay(TimeSpan.FromSeconds(delay));
+        }
+
+        public Transform CachedTransform => _cachedTransform;
+
         public void Init(IEnemy enemy, int numberObject)
         {
             NumberObject = numberObject;
             _enemy = enemy;
             
-            _isMoving = true;
+            _isActivate = true;
             GameRoot.Instance.GameLogic.DamageManager.OnKilled.Subscribe(OnDeath).AddTo(this);
         }
 
         private void Update()
         {
-            if (_isMoving)
+            if (_isActivate)
             {
-                Move();
+                MoverEnemy.Move();
             }
-        }
-
-        private void Move()
-        {
-            float valueSpeed = Time.deltaTime * _enemy.EnemyConfig.Speed;
-            _cachedTransform.position = _currentDirection * valueSpeed;
         }
 
         public void DestroyEnemy()

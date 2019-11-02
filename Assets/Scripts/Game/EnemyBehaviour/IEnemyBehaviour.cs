@@ -12,6 +12,12 @@ namespace Game
         IEnemy EnemyData { get; }
         
         Vector3 Position { get; }
+        
+        IMoverEnemy MoverEnemy { get; set; }
+
+        void ActivateEnemy(float delay);
+        
+        Transform CachedTransform { get; }
     }
 }
 
