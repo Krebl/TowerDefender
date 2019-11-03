@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Configs
 {
     public interface ITowerConfig
     {
+        string NameTower { get; }
+        Sprite Avatar { get; }
+        
         float DiameterAreaAttack { get; }
         float SecondsBetweenShoot { get; }
         int Damage { get; }

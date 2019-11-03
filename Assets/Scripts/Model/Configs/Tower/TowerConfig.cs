@@ -8,15 +8,20 @@ namespace Configs
         [Header("Prefab")] 
         [SerializeField] private GameObject _prefabTower;
 
-        [Header("Settings")] 
-        [SerializeField] private string _id;
+        [Header("Base parameter")] 
+        [SerializeField] private string _nameTower;
+        [SerializeField] private Sprite _avatar;
         
+        [Header("Settings")]
         [SerializeField] private float _diameterAreaAttack;
         [SerializeField] private float _secondsBetweenShoot;
         [SerializeField] private int _damage;
 
         [Header("Purchase config")] 
         [SerializeField] private PurchaseConfig _purchaseConfig;
+
+        public string NameTower => _nameTower;
+        public Sprite Avatar => _avatar;
 
         public float DiameterAreaAttack => _diameterAreaAttack;
         public float SecondsBetweenShoot => _secondsBetweenShoot;

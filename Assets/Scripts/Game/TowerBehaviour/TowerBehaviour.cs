@@ -16,15 +16,19 @@ namespace Game
 
         private bool _isActive = false;
 
+        public ITowerConfig TowerConfig => _towerConfig;
+
         public void Init(ITowerConfig config)
         {
             _aim = new AimTower();
             _towerConfig = config;
             _radar.Init(_towerConfig.DiameterAreaAttack);
             
-            _reloadTimer = Observable.Interval(TimeSpan.FromSeconds(_towerConfig.SecondsBetweenShoot))
+            Observable.Interval(TimeSpan.FromSeconds(_towerConfig.SecondsBetweenShoot))
                 .Where(_ => _isActive).Subscribe(_ => Shoot()).AddTo(this);
         }
+
+        public GameObject TowerObject { get; }
 
         public void ActivateTower()
         {

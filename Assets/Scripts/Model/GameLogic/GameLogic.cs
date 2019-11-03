@@ -13,6 +13,7 @@ namespace Model
         public IEnemySpawn EnemySpawn { get; }
         
         public IGameStore Store { get; }
+        public IGameConfig GameConfig => _gameConfig;
 
         private IGameConfig _gameConfig;
         
@@ -28,6 +29,11 @@ namespace Model
             EnemySpawn = new EnemySpawn(config.EnemyConfigs);
             
             Store = new GameStore();
+        }
+
+        public void StartGame()
+        {
+            
         }
     }
 }

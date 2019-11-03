@@ -8,9 +8,12 @@ namespace Configs
     [CreateAssetMenu(fileName = "PurchaseConfig", menuName = "Tower/Create PurchaseConfig")]
     public class PurchaseConfig : ScriptableObject, IPurchaseConfig
     {
+        [SerializeField] private string _idPurchase;
         [SerializeField] private int _cost;
 
         public int Cost => _cost;
+
+        public string IdPurchase => _idPurchase;
     }  
 }
 
