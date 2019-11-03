@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d4c617abf71094fa36fede6c6b2cc5, type: 3}
+  m_Name: OldTower
+  m_EditorClassIdentifier: 
+  _prefabTower: {fileID: 4796481057989311011, guid: 32636e8430ddacc42818f3c1ed4032e4,
+    type: 3}
+  _nameTower: "\u0421\u0442\u0430\u0440\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
+  _avatar: {fileID: 21300000, guid: 962d8b16b1fa9b44eb172d09ba6d2932, type: 3}
+  _diameterAreaAttack: 10
+  _secondsBetweenShoot: 3
+  _damage: 12
+  _purchaseConfig: {fileID: 11400000, guid: dde95a53898973140882d5bb4d80b401, type: 2}
