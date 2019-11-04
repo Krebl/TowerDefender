@@ -33,7 +33,7 @@ namespace View
 
         private void OnButtonStartGameClick()
         {
-            GameRoot.Instance.GameLogic.StartGame();
+            GameRoot.Instance.StartGame();
             _buttonStartGame.enabled = false;
         }
     }

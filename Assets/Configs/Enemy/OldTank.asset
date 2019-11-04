@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefabEnemy: {fileID: 6162094223378941499, guid: 76c18a608e1702f43a9c082d4db827b3,
     type: 3}
   _id: OldTank
-  _healthAmount: 90
-  _speed: 1
+  _healthAmount: 18
+  _speed: 12
   _damage: 25
   _reward: {fileID: 11400000, guid: bd03be7d2889654489c8b1383ce5cdd6, type: 2}

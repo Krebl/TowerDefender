@@ -23,4 +23,11 @@ public class GameRoot : Singleton<GameRoot>
         _gameController.CreateLevel(GameLogic);
         NavigationView.Instance.PushView<GameView>();
     }
+
+    public void StartGame()
+    {
+        _gameController.StartGame();
+    }
+
+    public ISpawnBehaviour SpawnBehaviour => _gameController.SpawnBehaviour;
 }

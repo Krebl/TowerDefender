@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefabEnemy: {fileID: 6951583836294143736, guid: 33affa95135e6af4c8874ec4237ade70,
     type: 3}
   _id: BigTank
-  _healthAmount: 150
-  _speed: 0.2
+  _healthAmount: 30
+  _speed: 5
   _damage: 66
   _reward: {fileID: 11400000, guid: 2cf6ff8e8c2c9444e9112e28be7d1930, type: 2}

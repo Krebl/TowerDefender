@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   _nameTower: "\u0420\u0430\u043A\u0435\u0442\u043D\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
   _avatar: {fileID: 21300000, guid: 128b6bb77d754ec408fa8cbbcb212338, type: 3}
-  _diameterAreaAttack: 20
+  _diameterAreaAttack: 50
   _secondsBetweenShoot: 8
   _damage: 30
   _purchaseConfig: {fileID: 11400000, guid: 5f1200c710a39d446b3358e52ed1da6c, type: 2}

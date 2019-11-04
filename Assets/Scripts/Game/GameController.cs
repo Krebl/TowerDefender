@@ -12,6 +12,8 @@ namespace Game
         [SerializeField] private string[] _pathsToMap;
         [SerializeField] private SpawnBehaviour _spawnBehaviour;
 
+        public SpawnBehaviour SpawnBehaviour => _spawnBehaviour;
+
         private void CreateMap(int indexMap)
         {
             if (_pathsToMap.Length <= 0)
@@ -41,7 +43,7 @@ namespace Game
 
         public void StartGame()
         {
-            _spawnBehaviour.Activate();
+            GameReport.CurrentState = GameReport.GameState.Playing;
         }
     }
 }

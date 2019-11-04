@@ -17,6 +17,7 @@ namespace View
         [SerializeField] private TextMeshProUGUI _damageText;
         [SerializeField] private TextMeshProUGUI _diameterText;
         [SerializeField] private TextMeshProUGUI _timeReloadText;
+        [SerializeField] private TextMeshProUGUI _costText;
 
         [Header("Buttons")]
         [SerializeField] private Button _buttonBuy;
@@ -36,6 +37,7 @@ namespace View
             _damageText.text = _towerConfig.Damage.ToString();
             _diameterText.text = _towerConfig.DiameterAreaAttack.ToString();
             _timeReloadText.text = _towerConfig.SecondsBetweenShoot.ToString();
+            _costText.text = _towerConfig.PurchaseConfig.Cost.ToString();
 
             Subscribe();
             SetActiveButtonBuy();
@@ -57,7 +59,8 @@ namespace View
         {
             if (id == _towerConfig.PurchaseConfig.IdPurchase)
             {
-                
+                Debug.Log("OnSuccessPurchase");
+                _slot.CreateTower(_towerConfig);
             }
         }
 
@@ -68,7 +71,7 @@ namespace View
 
         private void SetActiveButtonBuy()
         {
-            _buttonBuy.enabled = _slot.IsEmpty &&
+            _buttonBuy.interactable = _slot.IsEmpty &&
                                  GameRoot.Instance.GameLogic.Store.IsEnoughOnBalance(_towerConfig.PurchaseConfig);
         }
     }

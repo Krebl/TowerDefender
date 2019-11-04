@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefabEnemy: {fileID: 5583011696610843138, guid: 158f2a99cffddc84087e4a146a9bd871,
     type: 3}
   _id: fightCar
-  _healthAmount: 60
-  _speed: 2
+  _healthAmount: 10
+  _speed: 14
   _damage: 5
   _reward: {fileID: 11400000, guid: c350fa5103aa42648831c50c6ae0f601, type: 2}

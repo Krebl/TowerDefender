@@ -28,7 +28,7 @@ namespace Purchase
 
         public bool IsEnoughOnBalance(IPurchaseConfig config)
         {
-            return config.Cost < Balance.BalanceValue;
+            return config.Cost <= Balance.BalanceValue;
         }
 
         public void Purchase(IPurchaseConfig config)
@@ -36,6 +36,11 @@ namespace Purchase
             if (IsEnoughOnBalance(config))
             {
                 Balance.BalanceValue -= config.Cost;
+                _onSuccessPurchase.OnNext(config.IdPurchase);
+            }
+            else
+            {
+                _onFailedPurchase.OnNext(config.IdPurchase);
             }
         }
 

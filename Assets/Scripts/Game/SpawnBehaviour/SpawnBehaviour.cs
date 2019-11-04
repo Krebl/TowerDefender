@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Model;
+using UniRx;
 using UnityEngine;
 
 namespace Game
@@ -7,11 +8,13 @@ namespace Game
     public class SpawnBehaviour : MonoBehaviour, ISpawnBehaviour
     {
         private int _currentIndexEnemy;
-        private bool _isActivate;
         private IEnemySpawn _enemySpawn;
         private IMap _map;
 
-        private float _delayBetweenActivate = 0.3f;
+        private Dictionary<int, IEnemyBehaviour> _enemyBehaviours;
+        private float _delayBetweenActivate = 0.5f;
+
+        public ISubject<int> OnDestroyEnemy { get; private set; }
 
         private void IncreaseIndex()
         {
@@ -25,21 +28,27 @@ namespace Game
 
         public void Init(IEnemySpawn enemySpawn, IMap map)
         {
-            _isActivate = true;
+            OnDestroyEnemy = new Subject<int>();
+            _enemyBehaviours = new Dictionary<int, IEnemyBehaviour>();
+            
             _enemySpawn = enemySpawn;
             _map = map;
         }
 
-        public void Activate()
+        public void DestroyEnemy(int numberEnemy)
         {
-            _isActivate = true;
+            if(_enemyBehaviours.ContainsKey(numberEnemy))
+            {
+                _enemyBehaviours.Remove(numberEnemy);
+                OnDestroyEnemy.OnNext(numberEnemy);
+            }
         }
 
         private void Update()
         {
-            if (_isActivate)
+            if (GameReport.IsPlaying)
             {
-               List<IEnemy> enemies = _enemySpawn.GetEnemyForSpawn(Time.deltaTime);
+                List<IEnemy> enemies = _enemySpawn.GetEnemyForSpawn(Time.deltaTime);
 
                for (int i = 0; i < enemies.Count; i++)
                {
@@ -58,6 +67,9 @@ namespace Game
             enemyBehaviour.Init(enemy, _currentIndexEnemy);
             enemyBehaviour.MoverEnemy = new MoveEnemyOnRoute(_map.RouteEnemy, enemyBehaviour.CachedTransform);
             enemyBehaviour.ActivateEnemy(currentDelay);
+            //0 стартовая позиция
+            enemyBehaviour.CachedTransform.position = _map.RouteEnemy.GetPositionPoint(0);
+            _enemyBehaviours.Add(enemyBehaviour.NumberObject, enemyBehaviour);
             
             IncreaseIndex();
         }

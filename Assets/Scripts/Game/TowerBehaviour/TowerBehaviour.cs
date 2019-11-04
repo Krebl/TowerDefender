@@ -14,8 +14,6 @@ namespace Game
         private IDisposable _reloadTimer;
         private IAimTower _aim;
 
-        private bool _isActive = false;
-
         public ITowerConfig TowerConfig => _towerConfig;
 
         public void Init(ITowerConfig config)
@@ -25,15 +23,12 @@ namespace Game
             _radar.Init(_towerConfig.DiameterAreaAttack);
             
             Observable.Interval(TimeSpan.FromSeconds(_towerConfig.SecondsBetweenShoot))
-                .Where(_ => _isActive).Subscribe(_ => Shoot()).AddTo(this);
+                .Where(_ => GameReport.IsPlaying).Subscribe(_ => Shoot()).AddTo(this);
+
+            GameRoot.Instance.SpawnBehaviour.OnDestroyEnemy.Subscribe(OnTargetKilled).AddTo(this);
         }
 
-        public GameObject TowerObject { get; }
-
-        public void ActivateTower()
-        {
-            _isActive = true;
-        }
+        public GameObject TowerObject => gameObject;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -60,6 +55,14 @@ namespace Game
             if (selectedEnemy != null)
             {
                 GameRoot.Instance.GameLogic.DamageManager.SetDamage(selectedEnemy.EnemyData, _towerConfig.Damage);
+            }
+        }
+
+        private void OnTargetKilled(int numberEnemy)
+        {
+            if (_radar.TrackedEnemies.ContainsKey(numberEnemy))
+            {
+                _radar.TrackedEnemies.Remove(numberEnemy);
             }
         }
     }

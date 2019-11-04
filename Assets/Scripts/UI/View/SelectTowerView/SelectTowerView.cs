@@ -31,7 +31,7 @@ namespace View
         {
             _slot = slot;
             CreateAllTowerInfo();
-            _buttonToSellTower.enabled = !_slot.IsEmpty;
+            _buttonToSellTower.interactable = !_slot.IsEmpty;
         }
 
         protected override void Dispose()
@@ -77,7 +77,12 @@ namespace View
 
         private void OnBalanceChange(int size)
         {
-            _buttonToSellTower.enabled = !_slot.IsEmpty;
+            if (_slot == null)
+            {
+                return;;
+            }
+            
+            _buttonToSellTower.interactable = !_slot.IsEmpty;
 
             for (int i = 0; i < _createdTowerInfo.Count; i++)
             {

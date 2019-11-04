@@ -2,6 +2,7 @@
 using UniRx;
 using UnityEngine;
 using Utils;
+using View;
 
 namespace Game
 {
@@ -29,6 +30,7 @@ namespace Game
                 if (enemy != null)
                 {
                     GameRoot.Instance.GameLogic.DamageManager.SetDamage(_player, enemy.EnemyData.EnemyConfig.Damage);
+                    enemy.DestroyEnemy();
                 }
             }
         }
@@ -37,7 +39,8 @@ namespace Game
         {
             if (id == _player.Id)
             {
-                //call game over
+                GameReport.CurrentState = GameReport.GameState.GameOver;
+                NavigationView.Instance.PushView<GameOverView>();
             }
         }
     }

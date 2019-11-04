@@ -15,6 +15,11 @@ namespace Game
 
             foreach (var variant in variants.Values)
             {
+                if (variant == null)
+                {
+                    continue;
+                }
+                
                 currentDistance = Vector3.Distance(castle, variant.Position);
                 if (currentDistance < minDistance)
                 {

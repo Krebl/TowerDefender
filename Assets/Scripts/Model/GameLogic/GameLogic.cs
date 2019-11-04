@@ -30,11 +30,6 @@ namespace Model
             
             Store = new GameStore();
         }
-
-        public void StartGame()
-        {
-            
-        }
     }
 }
 

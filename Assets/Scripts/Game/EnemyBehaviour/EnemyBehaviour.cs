@@ -8,6 +8,7 @@ namespace Game
     public class EnemyBehaviour : MonoBehaviour, IEnemyBehaviour
     {
         [SerializeField] private Transform _cachedTransform;
+        [SerializeField] private BoxCollider _collider;
 
         private bool _isActivate = false;
         private IEnemy _enemy;
@@ -18,7 +19,15 @@ namespace Game
         public IMoverEnemy MoverEnemy { get; set; }
         public void ActivateEnemy(float delay)
         {
-            Observable.Start(() => _isActivate = true).Delay(TimeSpan.FromSeconds(delay));
+            Observable.Start(() =>
+            {
+                MoverEnemy.Speed = _enemy.EnemyConfig.Speed;
+            }).Delay(TimeSpan.FromSeconds(delay)).Subscribe(_ =>
+            {
+                MoverEnemy.StartMove();
+                _isActivate = true;
+                _collider.enabled = true;
+            });
         }
 
         public Transform CachedTransform => _cachedTransform;
@@ -28,13 +37,12 @@ namespace Game
             NumberObject = numberObject;
             _enemy = enemy;
             
-            _isActivate = true;
             GameRoot.Instance.GameLogic.DamageManager.OnKilled.Subscribe(OnDeath).AddTo(this);
         }
 
         private void Update()
         {
-            if (_isActivate)
+            if (GameReport.IsPlaying && _isActivate)
             {
                 MoverEnemy.Move();
             }
@@ -42,6 +50,7 @@ namespace Game
 
         public void DestroyEnemy()
         {
+            GameRoot.Instance.SpawnBehaviour.DestroyEnemy(NumberObject);
             Destroy(gameObject);
         }
 
@@ -51,6 +60,7 @@ namespace Game
         {
             if (id == _enemy.Id)
             {
+                Debug.Log("destroy");
                 GameRoot.Instance.GameLogic.Store.Give(_enemy.EnemyConfig.RewardConfig.GetReward);
                 DestroyEnemy();
             }

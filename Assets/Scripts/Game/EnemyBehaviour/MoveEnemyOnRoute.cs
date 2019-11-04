@@ -7,11 +7,15 @@ namespace Game
     {
         private IRouteEnemy _route;
         private Transform _enemyTransform;
+
+        private Rigidbody _rigidbody;
         
         public MoveEnemyOnRoute(IRouteEnemy routeEnemy, Transform enemyTransform)
         {
             _route = routeEnemy;
             _enemyTransform = enemyTransform;
+
+            _rigidbody = enemyTransform.GetComponent<Rigidbody>();
         }
         
         public float Speed { get; set; }
@@ -24,18 +28,22 @@ namespace Game
         {
             if (_isMoving)
             {
+
+                
                 Vector3 position =
                     Vector2.MoveTowards(_enemyTransform.position, _route.GetPositionPoint(_pointRoute),
                         Time.deltaTime * Speed);
                 position = ClampUtils.ClampVector(position, _prevPosition, _route.GetPositionPoint(_pointRoute));
 
-                _enemyTransform.position = position;
+                _rigidbody.MovePosition(position);
 
                 if (position.Equals(_route.GetPositionPoint(_pointRoute)))
                 {
                     if (_route.IsFinish(_pointRoute))
                     {
                         _isMoving = false;
+                        _rigidbody.velocity = Vector3.zero;
+                        _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                     }
                     else
                     {

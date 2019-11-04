@@ -7,7 +7,7 @@ namespace Purchase
     public class Balance : IBalance
     {
         private ReactiveProperty<int> _balanceProperty;
-        private int _defaultBalance = 30;
+        private int _defaultBalance = 5630;
         
         public Balance()
         {

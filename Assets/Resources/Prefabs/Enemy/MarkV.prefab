@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7245771980702699495}
   - component: {fileID: 405165903805979721}
   - component: {fileID: 4528046075184518560}
+  - component: {fileID: 3222251099266789269}
   m_Layer: 0
   m_Name: MarkV
   m_TagString: Enemy
@@ -41,8 +42,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891737050712785389}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5.835242, y: 2.5554805, z: 2.6709309}
   m_Center: {x: -0.1087544, y: 1.723633, z: 0.18097353}
@@ -59,6 +60,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cachedTransform: {fileID: 7245771980702699495}
+  _collider: {fileID: 405165903805979721}
+--- !u!54 &3222251099266789269
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891737050712785389}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &2852654191950193726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,8 +154,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7000002
       objectReference: {fileID: 0}
+    - target: {fileID: 6860513775927582850, guid: 6528bd0eb724b6b40a43a752f7824809,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860513775927572592, guid: 6528bd0eb724b6b40a43a752f7824809,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5271148089779603379, guid: 6528bd0eb724b6b40a43a752f7824809, type: 3}
+    - {fileID: 6860513775925493984, guid: 6528bd0eb724b6b40a43a752f7824809, type: 3}
+    - {fileID: 6860513775925413498, guid: 6528bd0eb724b6b40a43a752f7824809, type: 3}
+    - {fileID: 6860513775925559392, guid: 6528bd0eb724b6b40a43a752f7824809, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6528bd0eb724b6b40a43a752f7824809, type: 3}
 --- !u!4 &8693030512864517288 stripped
 Transform:

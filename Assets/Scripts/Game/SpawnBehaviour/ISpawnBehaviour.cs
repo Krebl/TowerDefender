@@ -1,4 +1,5 @@
 ﻿using Model;
+using UniRx;
 
 namespace Game
 {
@@ -6,7 +7,9 @@ namespace Game
     {
         void Init(IEnemySpawn enemySpawn, IMap map);
 
-        void Activate();
+        void DestroyEnemy(int enemyId);
+        
+        ISubject<int> OnDestroyEnemy { get; }
     }
 }
 

@@ -808,6 +808,7 @@ MonoBehaviour:
   _damageText: {fileID: 8470127793041151901}
   _diameterText: {fileID: 8233781388588154961}
   _timeReloadText: {fileID: 7268320659781839620}
+  _costText: {fileID: 4699324642484224727}
   _buttonBuy: {fileID: 7007404411846549328}
 --- !u!1 &4984121654948792881
 GameObject:

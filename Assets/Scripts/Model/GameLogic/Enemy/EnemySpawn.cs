@@ -5,7 +5,7 @@ namespace Model
 {
     public class EnemySpawn : IEnemySpawn
     {
-        private float _timeBetweenSpawn = 1f;
+        private float _timeBetweenSpawn = 3f;
         private float _timeFromLastSpawn;
 
         private int _maxEnemyForOneSpawn = 3;

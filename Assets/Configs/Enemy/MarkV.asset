@@ -15,7 +15,7 @@ MonoBehaviour:
   _prefabEnemy: {fileID: 891737050712785389, guid: 6392d913552d53645aa4a70d5351a7fc,
     type: 3}
   _id: MarkV
-  _healthAmount: 120
-  _speed: 0.5
+  _healthAmount: 26
+  _speed: 7
   _damage: 45
   _reward: {fileID: 11400000, guid: e07401b0e5cb2584ca9f0f799ad0369c, type: 2}
