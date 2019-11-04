@@ -60,7 +60,6 @@ namespace Game
         {
             if (id == _enemy.Id)
             {
-                Debug.Log("destroy");
                 GameRoot.Instance.GameLogic.Store.Give(_enemy.EnemyConfig.RewardConfig.GetReward);
                 DestroyEnemy();
             }
