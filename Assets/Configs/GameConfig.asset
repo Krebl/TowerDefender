@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd8eeb1e9213894c909bb7d3e48350e, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  _towerConfig:
+  - {fileID: 11400000, guid: 0c897f2ced4a726489341dc80ff45fb2, type: 2}
+  - {fileID: 11400000, guid: de400d185c7373d41b6ac839454bf8d7, type: 2}
+  - {fileID: 11400000, guid: a62ab27e343250b4899037098a4441e5, type: 2}
+  - {fileID: 11400000, guid: a4b8d9a3c20ed0541b36716a2c48784b, type: 2}
+  _enemyConfigs:
+  - {fileID: 11400000, guid: 975070f0475e0224981bd59b116fb3fc, type: 2}
+  - {fileID: 11400000, guid: 01d1d10d1197cd244b1455d49aa07825, type: 2}
+  - {fileID: 11400000, guid: b10fefad9ba6188459627405edf3d3ce, type: 2}
+  - {fileID: 11400000, guid: 7c35c53f4cac83e4f828bd6376b6b3e8, type: 2}
+  _castleConfig: {fileID: 11400000, guid: 27e0e9e79b62736468cf75cfdadd4f46, type: 2}

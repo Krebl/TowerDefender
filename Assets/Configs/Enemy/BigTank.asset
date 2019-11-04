@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23a82fc75b653043b5ad400cbc48ff9, type: 3}
   m_Name: BigTank
   m_EditorClassIdentifier: 
-  _prefabEnemy: {fileID: 8554715108662502056, guid: 50853641a61416446a04b596d0b02c05,
+  _prefabEnemy: {fileID: 6951583836294143736, guid: 33affa95135e6af4c8874ec4237ade70,
     type: 3}
   _id: BigTank
   _healthAmount: 150

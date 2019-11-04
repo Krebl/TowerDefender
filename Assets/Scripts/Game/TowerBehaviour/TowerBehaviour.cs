@@ -8,7 +8,7 @@ namespace Game
 {
     public class TowerBehaviour : MonoBehaviour, ITowerBehaviour
     {
-        [SerializeField] private IRadar _radar;
+        [SerializeField] private Radar _radar;
 
         private ITowerConfig _towerConfig;
         private IDisposable _reloadTimer;

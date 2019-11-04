@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23a82fc75b653043b5ad400cbc48ff9, type: 3}
   m_Name: OldTank
   m_EditorClassIdentifier: 
-  _prefabEnemy: {fileID: 4016443720975488487, guid: afa9aefbf3c21374fb448538fca3cdb0,
+  _prefabEnemy: {fileID: 6162094223378941499, guid: 76c18a608e1702f43a9c082d4db827b3,
     type: 3}
   _id: OldTank
   _healthAmount: 90

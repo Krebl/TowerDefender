@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d4c617abf71094fa36fede6c6b2cc5, type: 3}
   m_Name: RocketTower
   m_EditorClassIdentifier: 
-  _prefabTower: {fileID: 3179040239271822602, guid: 701d57291f88fae44a6f62f25779246f,
+  _prefabTower: {fileID: 8161617248385181445, guid: 376b4b5a41993e046ad51525ce6f93e3,
     type: 3}
   _nameTower: "\u0420\u0430\u043A\u0435\u0442\u043D\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
   _avatar: {fileID: 21300000, guid: 128b6bb77d754ec408fa8cbbcb212338, type: 3}
